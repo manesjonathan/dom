@@ -1,11 +1,11 @@
 // Get title h1 and display it in console
 let body = document.body;
 let title = body.getElementsByTagName("h1")[0];
-console.log(title.textContent);
+console.log(title.innerText);
 
 // Change title and display it in console
-title.textContent = "Modifying the DOM";
-console.log(title.textContent);
+title.innerText = "Modifying the DOM";
+console.log(title.innerText);
 
 
 // Change bg color with hot pink
