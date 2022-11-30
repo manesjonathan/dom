@@ -24,6 +24,14 @@ let learnerArray = [
     "Quentin Bource",
     "Virginie Dourson"];
 
+
+/**
+ * 
+ * Create a new section with a random background-color for each learner.
+ * The section should contain a paragraph with the name of the leaner.
+ * Those sections should be appended in the article
+ * 
+*/
 let article = document.body.getElementsByTagName("article")[0];
 learnerArray.sort(() => 0.5 - Math.random());
 
@@ -46,8 +54,13 @@ for (let learner of learnerArray) {
     }
 }
 
-// Random color function
-// Return an array with the brightness and the rgb value
+
+/**
+ * 
+ * Generate a random color with it brightness level.
+ * @return {Array} a Number with the brightness level and a String with the RGB value.
+ * 
+*/
 function getRandomColor() {
     let r = Math.floor(Math.random() * 256);
     let g = Math.floor(Math.random() * 256);
@@ -55,8 +68,17 @@ function getRandomColor() {
     return [getBrightness(r, g, b), ("rgb(" + r + "," + g + "," + b + ")")];
 }
 
-// Check for brightness
-// Solution taken at https://stackoverflow.com/questions/12043187/how-to-check-if-hex-color-is-too-black
+
+/**
+ *
+ * Calculate the brightness of a color.
+ * @param {number} r The red value of the color
+ * @param {number} g The green value of the color
+ * @param {number} b The blue value of the color
+ * @return {number} The value of the brightness level
+ * Solution taken at https://stackoverflow.com/questions/12043187/how-to-check-if-hex-color-is-too-black
+ *
+*/
 function getBrightness(r, g, b) {
     return (0.2126 * r + 0.7152 * g + 0.0722 * b);
 }
