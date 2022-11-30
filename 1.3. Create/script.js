@@ -57,14 +57,14 @@ for (let learner of learnerArray) {
 
 /**
  * 
- * Generate a random color with it brightness level.
+ * Generate a random color with its brightness level.
  * @return {Array} a Number with the brightness level and a String with the RGB value.
  * 
 */
 function getRandomColor() {
-    let r = Math.floor(Math.random() * 256);
-    let g = Math.floor(Math.random() * 256);
-    let b = Math.floor(Math.random() * 256);
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
     return [getBrightness(r, g, b), ("rgb(" + r + "," + g + "," + b + ")")];
 }
 
