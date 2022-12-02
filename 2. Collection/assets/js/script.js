@@ -1,6 +1,10 @@
 /**
  * Creation of movies collection.
  */
+const LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+    + "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+
+
 const MOVIE_LIST = [
     // Movie 1
     {
@@ -161,16 +165,21 @@ const MOVIE_LIST = [
     },
 ];
 
-if (sessionStorage.getItem("movie-list") === null){
+
+if (sessionStorage.getItem("movie-list") === null) {
     sessionStorage.setItem("movie-list", JSON.stringify(MOVIE_LIST));
 }
 
-const LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
-    + "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+console.log(sessionStorage.getItem("theme"));
+if (sessionStorage.getItem("theme") === "dark") {
+    document.body.className = "dark";
+} else {
+    document.body.className = null;
 
+}
 
 addCards(JSON.parse(sessionStorage.getItem("movie-list")));
-addMovieSwitch();
+addMovieFab();
 dayNightSwitch();
 
 function addCards(movieList) {
@@ -277,11 +286,12 @@ function dayNightSwitch() {
             dayNightButton.querySelector("i").classList.add("fa-sun");
         } else {
             dayNightButton.querySelector("i").classList.add("fa-moon");
+
         }
     })
 }
 
-function addMovieSwitch() {
+function addMovieFab() {
     let fab = document.createElement("button");
     fab.className = "fab-add"
     let fabIcon = document.createElement("i");

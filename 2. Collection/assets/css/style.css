@@ -70,6 +70,13 @@ body.dark .fab-add i {
   color: red;
   font-size: 2rem;
 }
+.div-form .submit-button {
+  width: 15vw;
+  padding: 2%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 .div-form form {
   display: flex;
   flex-direction: column;

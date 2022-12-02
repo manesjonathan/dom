@@ -16,7 +16,7 @@ submitButton.addEventListener("click", (e) => {
         name: inputName.value,
         releaseYear: inputYear.value,
         director: inputDirector.value,
-        pictureUrl: inputPictureUrl,
+        pictureUrl: inputPictureUrl.value,
         gender: inputGender.value,
         cast: inputCast.value,
         trailerUrl: inputTrailerUrl.value,
@@ -28,7 +28,8 @@ submitButton.addEventListener("click", (e) => {
     sessionStorage.setItem("entry", JSON.stringify(newMovie));
     existingEntries.push(newMovie);
     sessionStorage.setItem("movie-list", JSON.stringify(existingEntries));
-    console.log(existingEntries);
+
+    location.reload();
     divForm.style.display = "none";
 });
 
