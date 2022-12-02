@@ -8,16 +8,28 @@
     <title>The Collection</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script defer src="assets/js/script.js"></script>
-
+    <script src="https://kit.fontawesome.com/26838d0dd7.js" crossorigin="anonymous"></script>
+    <script defer src="assets/js/script.js" type="module"></script>
+    <script defer src="assets/js/add-movie.js" type="module"></script>
 </head>
 
 <body>
     <header>
-        <h1>My movies collection</h1>
+        <h1>MY MOVIES COLLECTION</h1>
     </header>
-
+    <div class="div-form">
+        <form>
+            <button class="close-button"><i class="fa fa-window-close"></i></button>
+            <input class="name" name="name" placeholder="Name" type="text">
+            <input class="release-year" name="release-year" placeholder="Release year" type="number">
+            <input class="director" name="director" placeholder="Director" type="text">
+            <input class="picture-url" name="picture-url" placeholder="Picture url" type="url">
+            <input class="gender" name="gender" placeholder="Gender (separated by a comma)" type="text">
+            <input class="cast" name="cast" placeholder="Cast members (separated by a comma)" type="text">
+            <input class="trailer-url" name="trailer-url" placeholder="Trailer url" type="url">
+            <button class="submit-button">Submit</button>
+        </form>
+    </div>
     <footer>
         <p>By Jonathan Manes</p>
     </footer>

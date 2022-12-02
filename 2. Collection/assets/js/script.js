@@ -1,5 +1,5 @@
 /**
- * Initialization of movies collection.
+ * Creation of movies collection.
  */
 const MOVIE_LIST = [
     // Movie 1
@@ -109,7 +109,6 @@ const MOVIE_LIST = [
             "Sylvester Stallone",
             "Talia Shire",
             "Burt Young",
-
             "Carl Weathers"
         ],
         trailerUrl: "https://www.youtube.com/watch?v=E4OQeSOtaYU",
@@ -162,68 +161,136 @@ const MOVIE_LIST = [
     },
 ];
 
+if (sessionStorage.getItem("movie-list") === null){
+    sessionStorage.setItem("movie-list", JSON.stringify(MOVIE_LIST));
+}
 
 const LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
     + "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
 
 
+addCards(JSON.parse(sessionStorage.getItem("movie-list")));
+addMovieSwitch();
+dayNightSwitch();
 
-/**
- * This function generate cards based on the MOVIE_LIST
- * Each card is added to the HTML document.
- */
-function generateCards() {
-    let main = document.createElement("main");
+function addCards(movieList) {
+
     let section = document.createElement("section");
     section.className = "section";
+    let main = document.createElement("main");
 
-    for (let movie of MOVIE_LIST) {
-        // Create the article
-        let article = document.createElement("article");
-
-        // Create the picture
-        let picture = document.createElement("img");
-        picture.setAttribute("alt", movie.name);
-        picture.setAttribute("src", movie.pictureUrl);
-        article.appendChild(picture);
-
-        let innerSection = document.createElement("section");
-        innerSection.className = "inner-section";
-
-        // Create the title
-        let title = document.createElement("h2");
-        title.innerText = movie.name;
-        innerSection.appendChild(title);
-
-        // Create the gender pin
-        let gender = document.createElement("h4");
-        gender.innerText = movie.gender.join(", ");
-        innerSection.appendChild(gender);
-
-        // Create the director
-        let director = document.createElement("h3");
-        director.innerText = movie.director + ", " + movie.releaseYear;
-        innerSection.appendChild(director);
-
-        // Create summary
-        let summary = document.createElement("p");
-        summary.innerText = LOREM_IPSUM;
-        innerSection.appendChild(summary);
-
-        // Create YouTube Pin
-        let link = document.createElement("a")
-        link.setAttribute("href", movie.trailerUrl);
-        link.setAttribute("target", "_blank");
-        let icon = document.createElement("i");
-        icon.setAttribute("class", "fa fa-youtube-play");
-        link.appendChild(icon);
-        innerSection.appendChild(link);
-
-        // Add article to section and section to main
-        article.appendChild(innerSection);
-        section.appendChild(article);
-        main.appendChild(section);
-        document.body.insertBefore(main, document.getElementsByTagName("footer")[0]);
+    // Add article to section and section to main
+    main.appendChild(section);
+    document.body.insertBefore(main, document.querySelector("footer"));
+    for (let movie of movieList) {
+        section.appendChild(createMovieCards(movie));
     }
+
+    console.log(movieList);
+
 }
-generateCards();
+
+function createMovieCards(movie) {
+    // Create the article
+    let article = document.createElement("article");
+
+    // Create the picture
+    let picture = document.createElement("img");
+    picture.setAttribute("alt", movie.name);
+    picture.setAttribute("src", movie.pictureUrl);
+    article.appendChild(picture);
+
+    // Create the inner section
+    let innerSection = document.createElement("section");
+    innerSection.className = "inner-section";
+
+    // Create the title
+    let title = document.createElement("h2");
+    title.innerText = movie.name;
+    innerSection.appendChild(title);
+
+    // Create the gender pin
+    let gender = document.createElement("h4");
+    gender.innerText = movie.gender;
+    innerSection.appendChild(gender);
+
+    // Create the director
+    let director = document.createElement("h3");
+    director.innerText = movie.director + ", " + movie.releaseYear;
+    innerSection.appendChild(director);
+
+    // Create summary
+    let summary = document.createElement("p");
+    summary.innerText = LOREM_IPSUM;
+    innerSection.appendChild(summary);
+
+    // Create the back section
+    let backSection = document.createElement("section");
+    backSection.className = "back-section";
+
+    let castTitle = document.createElement("h4");
+    castTitle.innerText = "Casting"
+    backSection.appendChild(castTitle);
+
+    let cast = document.createElement("ul");
+    cast.className = "cast-list";
+    for (let entry of movie.cast) {
+        let listItem = document.createElement("li")
+        listItem.innerText = entry;
+        cast.appendChild(listItem);
+    }
+    backSection.appendChild(cast);
+
+    // Create YouTube Pin
+    let link = document.createElement("a")
+    link.setAttribute("href", movie.trailerUrl);
+    link.setAttribute("target", "_blank");
+
+    let icon = document.createElement("i");
+    icon.setAttribute("class", "fab fa-youtube");
+    link.appendChild(icon);
+    backSection.appendChild(link);
+
+    article.appendChild(innerSection);
+    article.appendChild(backSection);
+
+    return article;
+
+}
+
+function dayNightSwitch() {
+    let dayNightButton = document.createElement("button");
+    dayNightButton.className = "day-night"
+    let dayNightIcon = document.createElement("i");
+    dayNightIcon.setAttribute("class", "fas fa-moon");
+    dayNightButton.appendChild(dayNightIcon);
+    document.body.appendChild(dayNightButton);
+
+    dayNightButton.addEventListener("click", () => {
+        dayNightButton.querySelector("i").classList.toggle("fa-sun");
+        dayNightButton.querySelector("i").classList.toggle("fa-moon");
+        document.body.classList.toggle("dark");
+    })
+
+    window.addEventListener("load", () => {
+        if (document.body.classList.contains("dark")) {
+            dayNightButton.querySelector("i").classList.add("fa-sun");
+        } else {
+            dayNightButton.querySelector("i").classList.add("fa-moon");
+        }
+    })
+}
+
+function addMovieSwitch() {
+    let fab = document.createElement("button");
+    fab.className = "fab-add"
+    let fabIcon = document.createElement("i");
+    fabIcon.setAttribute("class", "fa-solid fa-circle-plus");
+    fab.appendChild(fabIcon);
+
+    fab.addEventListener("click", () => {
+        let form = document.querySelector(".div-form");
+        form.style.display = "block";
+    })
+    document.querySelector("section").appendChild(fab);
+}
