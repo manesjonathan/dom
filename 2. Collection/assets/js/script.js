@@ -1,188 +1,21 @@
-/**
- * Creation of movies collection.
- */
-const LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
-    + "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+import { MOVIE_LIST } from "./config.js"
+import { LOREM_IPSUM } from "./config.js"
 
 
-const MOVIE_LIST = [
-    // Movie 1
-    {
-        name: "The Matrix",
-        releaseYear: 1999,
-        director: "The Wachowski",
-        pictureUrl: "https://fr.web.img6.acsta.net/medias/04/34/49/043449_af.jpg",
-        gender: ["Sci-fi"],
-        cast: [
-            "Keanu Reeves",
-            "Carrie-Anne Moss",
-            "Laurence Fishburne",
-            "Hugo Weaving"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=gSqxHAtUqkk",
-    },
-
-    // Movie 2
-    {
-        name: "The Matrix Reloaded",
-        releaseYear: 2003,
-        director: "The Wachowski",
-        pictureUrl: "https://fr.web.img3.acsta.net/medias/nmedia/00/02/53/34/affiche.jpg",
-        gender: ["Sci-fi"],
-        cast: [
-            "Keanu Reeves",
-            "Carrie-Anne Moss",
-            "Laurence Fishburne",
-            "Hugo Weaving"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=4J7LRkJjX8I",
-    },
-
-    // Movie 3
-    {
-        name: "The Matrix Revolutions",
-        releaseYear: 2003,
-        director: "The Wachowski",
-        pictureUrl: "https://fr.web.img6.acsta.net/medias/nmedia/18/35/14/64/18364977.jpg",
-        gender: ["Sci-fi"],
-        cast: [
-            "Keanu Reeves",
-            "Carrie-Anne Moss",
-            "Laurence Fishburne",
-            "Hugo Weaving"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=x-byk_9xCnQ",
-    },
-
-    // Movie 4
-    {
-        name: "The Matrix Resurrections",
-        releaseYear: 2021,
-        director: "Lana Wachowski",
-        pictureUrl: "https://fr.web.img4.acsta.net/pictures/21/11/17/17/24/3336846.jpg",
-        gender: ["Sci-fi"],
-        cast: [
-            "Keanu Reeves",
-            "Carrie-Anne Moss",
-            "Yahya Abdul-Mateen II",
-            "Jonathan Groff"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=cdTE_mR6Gs8",
-    },
-
-    // Movie 5
-    {
-        name: "Rocky",
-        releaseYear: 1976,
-        director: "John G. Avildsen",
-        pictureUrl: "https://fr.web.img6.acsta.net/pictures/21/11/16/15/01/4363069.jpg",
-        gender: ["Sports drama"],
-        cast: [
-            "Sylvester Stallone",
-            "Talia Shire",
-            "Burt Young",
-            "Carl Weathers"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=V1LIfIFPb7M",
-    },
-
-    // Movie 6
-    {
-        name: "Rocky 2",
-        releaseYear: 1979,
-        director: "Sylvester Stallone",
-        pictureUrl: "https://fr.web.img5.acsta.net/pictures/14/05/12/10/38/231381.jpg",
-        gender: [["Sports drama"]],
-        cast: [
-            "Sylvester Stallone",
-            "Talia Shire",
-            "Burt Young",
-            "Carl Weathers"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=FmyzmKJfRCA",
-    },
-
-    // Movie 7
-    {
-        name: "Rocky 3",
-        releaseYear: 1982,
-        director: "Sylvester Stallone",
-        pictureUrl: "https://fr.web.img3.acsta.net/medias/nmedia/18/36/23/17/19106061.jpg",
-        gender: [["Sports drama"]],
-        cast: [
-            "Sylvester Stallone",
-            "Talia Shire",
-            "Burt Young",
-            "Carl Weathers"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=E4OQeSOtaYU",
-    },
-
-    // Movie 8
-    {
-        name: "Rocky 4",
-        releaseYear: 1985,
-        director: "Sylvester Stallone",
-        pictureUrl: "https://fr.web.img6.acsta.net/pictures/14/08/25/16/16/198079.jpg",
-        gender: [["Sports drama"]],
-        cast: [
-            "Sylvester Stallone",
-            "Talia Shire",
-            "Burt Young",
-            "Carl Weathers"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=-zwUKC3zbNM",
-    },
-
-    // Movie 9
-    {
-        name: "Rocky 5",
-        releaseYear: 1990,
-        director: "Sylvester Stallone",
-        pictureUrl: "https://fr.web.img6.acsta.net/pictures/14/08/25/16/19/557323.jpg",
-        gender: ["Sports drama"],
-        cast: [
-            "Sylvester Stallone",
-            "Talia Shire",
-            "Burt Young"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=pK1jyJkkwDQ",
-    },
-
-    // Movie 10
-    {
-        name: "Hackers",
-        releaseYear: 1995,
-        director: "Iain Softley",
-        pictureUrl: "https://fr.web.img2.acsta.net/pictures/17/04/25/16/11/108654.jpg",
-        gender: ["Action", "Drama", "Thriller"],
-        cast: [
-            "Johnny Lee Miller",
-            "Angelina Jolie",
-            "Matthew Lillard"
-        ],
-        trailerUrl: "https://www.youtube.com/watch?v=HSIjEmRrElg",
-    },
-];
-
+let dayNightButton;
 
 if (sessionStorage.getItem("movie-list") === null) {
     sessionStorage.setItem("movie-list", JSON.stringify(MOVIE_LIST));
 }
+main(JSON.parse(sessionStorage.getItem("movie-list")));
 
-console.log(sessionStorage.getItem("theme"));
-if (sessionStorage.getItem("theme") === "dark") {
+
+if (localStorage.getItem("theme") === "dark") {
     document.body.className = "dark";
-} else {
-    document.body.className = null;
-
+    dayNightButton.querySelector("i").className = "fa fa-sun";
 }
 
-addCards(JSON.parse(sessionStorage.getItem("movie-list")));
-addMovieFab();
-dayNightSwitch();
-
-function addCards(movieList) {
+function main(movieList) {
 
     let section = document.createElement("section");
     section.className = "section";
@@ -192,16 +25,27 @@ function addCards(movieList) {
     main.appendChild(section);
     document.body.insertBefore(main, document.querySelector("footer"));
     for (let movie of movieList) {
-        section.appendChild(createMovieCards(movie));
+        let article = createMovieCards(movie);
+        section.appendChild(article);
+
+        article.addEventListener("click", () => {
+            deleteMovie(movie);
+        })
     }
 
-    console.log(movieList);
+    setListeners();
+   
+}
 
+function deleteMovie(movie) {
+    sessionStorage.removeItem(movie);
+    location.reload();
 }
 
 function createMovieCards(movie) {
     // Create the article
     let article = document.createElement("article");
+    article.className = movie.name.replaceAll(" ", "-").toLowerCase();
 
     // Create the picture
     let picture = document.createElement("img");
@@ -267,8 +111,9 @@ function createMovieCards(movie) {
 
 }
 
-function dayNightSwitch() {
-    let dayNightButton = document.createElement("button");
+function setListeners() {
+    // Day-Night switch
+    dayNightButton = document.createElement("button");
     dayNightButton.className = "day-night"
     let dayNightIcon = document.createElement("i");
     dayNightIcon.setAttribute("class", "fas fa-moon");
@@ -276,31 +121,27 @@ function dayNightSwitch() {
     document.body.appendChild(dayNightButton);
 
     dayNightButton.addEventListener("click", () => {
-        dayNightButton.querySelector("i").classList.toggle("fa-sun");
-        dayNightButton.querySelector("i").classList.toggle("fa-moon");
-        document.body.classList.toggle("dark");
-    })
-
-    window.addEventListener("load", () => {
-        if (document.body.classList.contains("dark")) {
-            dayNightButton.querySelector("i").classList.add("fa-sun");
+        if (document.body.className != "dark") {
+            localStorage.setItem("theme", "dark");
+            dayNightButton.querySelector("i").className = "fa fa-sun";
+            document.body.className = "dark";
         } else {
-            dayNightButton.querySelector("i").classList.add("fa-moon");
-
+            dayNightButton.querySelector("i").className = "fa fa-moon";
+            localStorage.setItem("theme", "light")
+            document.body.className = ""
         }
-    })
-}
+    });
 
-function addMovieFab() {
+    // Add movie fab
     let fab = document.createElement("button");
     fab.className = "fab-add"
     let fabIcon = document.createElement("i");
     fabIcon.setAttribute("class", "fa-solid fa-circle-plus");
     fab.appendChild(fabIcon);
+    document.querySelector("section").appendChild(fab);
 
     fab.addEventListener("click", () => {
         let form = document.querySelector(".div-form");
         form.style.display = "block";
     })
-    document.querySelector("section").appendChild(fab);
 }

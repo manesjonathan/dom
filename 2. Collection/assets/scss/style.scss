@@ -20,28 +20,6 @@ body {
   .div-form {
     display: none;
   }
-
-  .day-night {
-    position: fixed;
-    right: 1vw;
-    top: 25vh;
-    padding: 1%;
-
-    i {
-      font-size: 1rem;
-      color: $primaryVariant;
-    }
-  }
-
-  .fab-add {
-    border: none;
-    margin: 5%;
-    padding: 5%;
-    i {
-      font-size: 5rem;
-      color: $primaryVariant;
-    }
-  }
 }
 
 body.dark {
@@ -63,49 +41,25 @@ body.dark {
   }
 }
 
-.div-form {
+.day-night {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background-color: $colorOnTextLight;
+  right: 1vw;
+  top: 25vh;
+  padding: 1%;
 
-  .close-button {
-    background: none;
-    border: none;
-    .fa {
-      right: 5vw;
-      top: 15vh;
-      padding: 1%;
-      color: red;
-      font-size: 2rem;
-    }
+  i {
+    font-size: 1rem;
+    color: $primaryVariant;
   }
+}
 
-  .submit-button{
-    width: 15vw;
-    padding: 2%;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 50%;
-    height: 50%;
-
-    input {
-      margin: 1%;
-      padding: 2%;
-    }
+.fab-add {
+  border: none;
+  margin: 5%;
+  padding: 5%;
+  i {
+    font-size: 5rem;
+    color: $primaryVariant;
   }
 }
 
@@ -162,7 +116,6 @@ section {
 
       p {
         margin: 0;
-        margin-bottom: 20%;
       }
     }
 
@@ -191,6 +144,52 @@ section {
       .inner-section {
         display: none;
       }
+    }
+  }
+}
+
+.div-form {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: $colorOnTextLight;
+
+  .close-button {
+    background: none;
+    border: none;
+    .fa {
+      right: 5vw;
+      top: 15vh;
+      padding: 1%;
+      color: red;
+      font-size: 2rem;
+    }
+  }
+
+  .submit-button{
+    width: 15vw;
+    padding: 2%;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+
+    input {
+      margin: 1%;
+      padding: 2%;
     }
   }
 }
