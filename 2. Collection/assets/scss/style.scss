@@ -3,7 +3,7 @@ $secondaryColor: rgb(233, 233, 233);
 $colorOnTextLight: #191d24;
 $primaryVariant: #2a303c;
 $secondaryVariant: rgb(133, 133, 133);
-$accent: coral;
+$accentColor: coral;
 $boxShadow: rgba(0, 0, 0, 0.4);
 
 $fontFamily: Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -13,10 +13,9 @@ body {
   width: 90%;
   margin: auto;
   background-color: $primaryColor;
-  color: $colorOnTextLight;
+  color: $primaryVariant;
   font-family: $fontFamily;
 
-  canvas,
   .div-form {
     display: none;
   }
@@ -38,6 +37,28 @@ body.dark {
     i {
       color: $primaryColor;
     }
+    &:hover {
+      i {
+        scale: 1.2;
+        color: $accentColor;
+      }
+    }
+  }
+}
+
+.fab-add {
+  border: none;
+  margin: 5%;
+  padding: 5%;
+  i {
+    font-size: 5rem;
+    color: $primaryVariant;
+  }
+  &:hover {
+    i {
+      scale: 1.2;
+      color: $accentColor;
+    }
   }
 }
 
@@ -49,16 +70,6 @@ body.dark {
 
   i {
     font-size: 1rem;
-    color: $primaryVariant;
-  }
-}
-
-.fab-add {
-  border: none;
-  margin: 5%;
-  padding: 5%;
-  i {
-    font-size: 5rem;
     color: $primaryVariant;
   }
 }
@@ -88,7 +99,7 @@ section {
 
     img {
       width: 100%;
-      height: 50vh;
+      height: 40vh;
       object-fit: cover;
       border-radius: 8px;
     }
@@ -131,12 +142,13 @@ section {
         a {
           position: absolute;
           bottom: 0;
-          color: $accent;
+          color: $accentColor;
           font-size: 1.5rem;
         }
 
         ul {
           padding: 0;
+          margin-top: -1vh;
           list-style: none;
           text-align: center;
         }
@@ -172,7 +184,7 @@ section {
     }
   }
 
-  .submit-button{
+  .submit-button {
     width: 15vw;
     padding: 2%;
     left: 0;
@@ -199,21 +211,18 @@ footer {
   font-size: 1.25rem;
 }
 
-@media screen and (min-width: 800px) {
-  /*   body {
-    canvas {
-      display: block;
-      width: 100%;
-      height: 105%;
-      z-index: -1;
-      position: fixed;
-      top: 0px;
-      left: 0px;
-    }
-  } */
+@media screen and (min-width: 768px) {
   section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
   }
 }

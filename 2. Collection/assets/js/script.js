@@ -1,6 +1,7 @@
-import { MOVIE_LIST } from "./config.js"
-import { LOREM_IPSUM } from "./config.js"
+import { MOVIE_LIST, LOREM_IPSUM } from "./config.js"
 
+let audio = new Audio("https://www.cjoint.com/doc/21_02/KBwqN2tAvxs_netflix-tou-doum.mp3");
+audio.play();
 
 let dayNightButton;
 
@@ -28,16 +29,19 @@ function main(movieList) {
         let article = createMovieCards(movie);
         section.appendChild(article);
 
-        article.addEventListener("click", () => {
-            deleteMovie(movie);
-        })
     }
+    Array.from(document.querySelectorAll("article")).forEach(function (element) {
+        element.addEventListener('click', () => {
+            console.log(element.className);
+            let article = document.getElementsByClassName(element.className)[0];
+            article.style.display = "none";
 
+        });
+    });
     setListeners();
-   
 }
 
-function deleteMovie(movie) {
+function deleteMovie(movieName) {
     sessionStorage.removeItem(movie);
     location.reload();
 }
