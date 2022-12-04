@@ -1,13 +1,12 @@
 import { MOVIE_LIST, LOREM_IPSUM } from "./config.js"
 
-let audio = new Audio("https://www.cjoint.com/doc/21_02/KBwqN2tAvxs_netflix-tou-doum.mp3");
-audio.play();
-
 let dayNightButton;
 
 if (sessionStorage.getItem("movie-list") === null) {
     sessionStorage.setItem("movie-list", JSON.stringify(MOVIE_LIST));
 }
+
+
 main(JSON.parse(sessionStorage.getItem("movie-list")));
 
 
@@ -17,7 +16,6 @@ if (localStorage.getItem("theme") === "dark") {
 }
 
 function main(movieList) {
-
     let section = document.createElement("section");
     section.className = "section";
     let main = document.createElement("main");
@@ -42,7 +40,7 @@ function main(movieList) {
 }
 
 function deleteMovie(movieName) {
-    sessionStorage.removeItem(movie);
+    sessionStorage.removeItem(deleteMovie);
     location.reload();
 }
 

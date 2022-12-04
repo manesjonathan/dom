@@ -16,9 +16,10 @@ body {
   color: $primaryVariant;
   font-family: $fontFamily;
 
-  .div-form {
+  .div-form{
     display: none;
   }
+
 }
 
 body.dark {
@@ -167,8 +168,6 @@ section {
   left: 0;
   right: 0;
   margin: auto;
-  width: 100%;
-  height: 100%;
   z-index: 1;
   background-color: $colorOnTextLight;
 

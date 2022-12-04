@@ -31,6 +31,7 @@ submitButton.addEventListener("click", (e) => {
 
         location.reload();
         divForm.style.display = "none";
+
     } else {
         alert("Please complete each field");
         return;
