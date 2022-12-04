@@ -106,6 +106,7 @@ function createMovieCards(movie) {
     link.appendChild(icon);
     backSection.appendChild(link);
 
+    // Assemble
     article.appendChild(innerSection);
     article.appendChild(backSection);
 
