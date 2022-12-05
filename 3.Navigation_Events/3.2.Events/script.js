@@ -20,7 +20,7 @@ const clickOnSquare = (e) => {
   div.classList = e.target.classList;
   div.classList.toggle("displayedsquare")
 
-  // Display a pop up window on click
+  // Display the color of the square in an alert window
   div.addEventListener("click", () => {
     window.alert("The color is " + div.classList[1]);
 
@@ -68,12 +68,12 @@ body.addEventListener("keyup", e => {
 /**
  * 
  * Generate a random color with its brightness level.
- * @return {Array} a Number with the brightness level and a String with the RGB value.
+ * @return {String} The RGB value.
  * 
 */
 function getRandomColor() {
-  let r = Math.floor(Math.random() * 255);
-  let g = Math.floor(Math.random() * 255);
-  let b = Math.floor(Math.random() * 255);
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
   return "rgb(" + r + "," + g + "," + b + ")";
 }
