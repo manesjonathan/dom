@@ -75,6 +75,10 @@ body.dark {
   }
 }
 
+/* header, main, footer, .day-night{
+  display: none;
+} */
+
 header {
   text-align: center;
   font-size: 1.5rem;
@@ -219,9 +223,42 @@ footer {
 }
 
 @media screen and (min-width: 992px) {
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 105%;
+    z-index: -1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
+  .enter{
+    display: block;
+    position: fixed;
+    width: fit-content;
+    height: fit-content;
+    top: 0px;
+    left: 0px;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    padding: 1%;
+    font-size: 2rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    &:hover{
+      scale: 1.2;
+      color: $accentColor;
+    }
+    
+  }
   section {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
   }
+
+  
 }
