@@ -43,7 +43,6 @@ toggleDarkMode.addEventListener("change", (e) => {
     if (e.target.value === "dark") {
         document.body.style.backgroundColor = "black";
         document.body.style.color = "white";
-        document.querySelector("")
     } else {
         document.body.style.backgroundColor = "white";
         document.body.style.color = "black";
