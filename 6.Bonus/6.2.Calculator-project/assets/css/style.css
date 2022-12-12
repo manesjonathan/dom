@@ -1,0 +1,58 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+body main {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 80%;
+  margin: auto;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+body main .screen {
+  height: 7.5vh;
+  width: 90%;
+  margin: 5%;
+}
+body main .div-operator {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+body main .div-operator button {
+  font-size: 2rem;
+  margin: 5%;
+}
+body main .div-calculator {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+body main .div-calculator .div-digit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+body main .div-calculator .div-digit button {
+  font-size: 2rem;
+  margin: 5%;
+}
+body main .div-calculator .div-digit .clear {
+  font-size: 1rem;
+}
+body main .div-calculator .equal {
+  width: 25%;
+  height: 97.5%;
+  font-size: 2rem;
+  margin: 2.5%;
+  margin-top: 0.5%;
+}/*# sourceMappingURL=style.css.map */

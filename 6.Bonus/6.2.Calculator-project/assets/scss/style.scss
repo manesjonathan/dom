@@ -1,0 +1,65 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  main {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 80%;
+    margin: auto;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    .screen {
+      height: 7.5vh;
+      width: 90%;
+      margin: 5%;
+    }
+
+    .div-operator {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      width: 100%;
+
+      button {
+        font-size: 2rem;
+        margin: 5%;
+      }
+    }
+    .div-calculator {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      .div-digit {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+
+        button {
+          font-size: 2rem;
+          margin: 5%;
+
+        }
+        .clear{
+          font-size: 1rem;
+
+        }
+      }
+      .equal {
+        width: 25%;
+        height: 97.5%;
+        font-size: 2rem;
+        margin: 2.5%;
+        margin-top: 0.5%;
+      }
+    }
+  }
+}
